@@ -725,6 +725,8 @@ img {
 .mobile div {
   display: none;
   padding-top: 6%;
+  border-bottom: 1px #eee solid;
+  font-size: 0.8rem;
 }
 
 .mobile button {
@@ -740,6 +742,10 @@ img {
   height: 30px;
   outline: none;
   transition: all 400ms ease;
+}
+
+.mobile button:hover {
+  color: #555555;
 }
 
 .mobile button.expanded {
@@ -787,9 +793,10 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-
   //transition: all 0.4s ease-in-out;
 }
+
+
 
 // .desktop {
 //   display: block;
@@ -811,6 +818,13 @@ img {
  justify-content: space-between;
  align-items: center;
  padding: 2% 0;
+}
+
+@media (min-width: 800px) and (max-width: 1200px) {
+  .nav-main, .nav-shrink {
+    font-size: 0.9rem;
+    max-width: 90%;
+  }
 }
 
 @media (max-width: 800px) {
@@ -848,6 +862,8 @@ img {
 
 .billboard-inner {
   max-width: 1920px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .billboard-body {
@@ -895,17 +911,27 @@ h1 {
 
 @media all and (min-width: 320px) and (max-width: 767px) {
     h1 {
-      font-size: 50px;
+      font-size: 3rem;
+      margin: 1rem 0;
     }
+}
+
+@media all and (max-width: 900px) {
+  .billboard-body {
+    margin-top: 60px;
   }
+}
 
 .about {
   background-color: #f4f4f4;
 }
 
 .about-inner {
-  max-width:100%;
-  width:1172px;
+  margin: 0 auto;
+  max-width: 1172px;
+  width: 100%;
+  padding: 8% 1%;
+  box-sizing: border-box;
   margin: 0 auto;
   padding: 8% 1% 11% 1%;
 }
@@ -947,7 +973,9 @@ h2 {
   background-color: #fff;
   max-width: 1072px;
   margin: 0 auto;
-  padding: 8% 0% 11% 0%;
+  padding: 8% 1% 11% 1%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /*.intro {
@@ -1002,11 +1030,6 @@ font-weight: 400;
   -ms-transform: translate(-50%, -50%);
 }
 
-section {
-  //padding: 8.5% 0% 8.5% 0%;
-  max-width: 30%;
-}
-
 .small-text {
   font-family: pt_sansregular, 'Proxima Nova', sans-serif;
   font-weight: 400;
@@ -1030,6 +1053,35 @@ section img {
 
 .text-subheadings {
   margin-bottom: 18px;
+}
+
+@media all and (min-width: 320px) {
+  .rooms-container > section {
+    max-width: 30%;
+  }
+}
+
+@media all and (min-width: 320px) and (max-width: 767px) {
+  .rooms-inner {
+    padding-bottom: 20%;
+  }
+  .small-text {
+    line-height: 1.2rem;
+    padding-bottom: 10%;
+  }
+  .text-subheadings {
+    font-size: 1rem;
+  }
+}
+
+@media all and (max-width: 319px) {
+  .rooms-container > section {
+    padding: 7.5% 7.5%;
+    }
+  .rooms-container {
+    padding-bottom: 30%;
+
+  }
 }
 
 //View more pop-up
@@ -1109,8 +1161,9 @@ br {
 }
 
 .facilities-inner {
-  width: 1172px;
-  max-width:100%;
+  margin: 0 auto;
+  max-width: 1172px;
+  box-sizing: border-box;
   margin: 0 auto;
   padding: 8% 1% 11% 1%;
   font-size: 0;
@@ -1244,6 +1297,12 @@ br {
     margin: 0 auto;
   }
 }
+
+@media all and (max-width: 400px) {
+    .owl-prev, .owl-next  {
+      display: none;
+    }
+}
 //
 // @media all (min-width: 320px) and (max-width: 767px) {
 //   .testimonial-text {
@@ -1361,11 +1420,12 @@ br {
 }
 
 .contacts-img {
+  top: 50%;
   display: block;
 }
 
 .contacts-table {
-  padding: 5% 0% 0% 20%;
+  padding: 5% 0% 5% 18%;
 }
 
 table {
@@ -1383,6 +1443,12 @@ td {
   padding: 1% 2%;
 }
 
+@media all and (max-width: 1000px) {
+  .contacts-img {
+    display: none;
+  }
+}
+
 @media all and (min-width: 767px) {
   #map {
     width:100%;
@@ -1390,13 +1456,13 @@ td {
   }
 }
 
-@media all and (min-width: 320px) and (max-width: 766px) {
+@media all and (min-width: 400px) and (max-width: 766px) {
   #map {
     height: 552px;
   }
 }
 
-@media all and (max-width: 319px) {
+@media all and (max-width: 399px) {
     #map {
       height: 276px;
     }
@@ -1415,9 +1481,10 @@ td {
 .footer-inner {
   position: relative;
   margin: 0 auto;
-  max-width:100%;
-  width: 1172px;
-  padding: 8% 1% 8% 1%;
+  max-width: 1172px;
+  width: 100%;
+  padding: 8% 1%;
+  box-sizing: border-box;
 }
 
 .footer-nav {
@@ -1428,7 +1495,7 @@ td {
   margin: 0;
 }
 
-li.nav-column-1 > a {
+.nav-column a {
   font-size: 0.8rem;
   letter-spacing: 0.2rem;
   line-height: 2rem;
@@ -1436,24 +1503,27 @@ li.nav-column-1 > a {
   font-family: "PT Sans", "Proxima Nova", sans-serif;
 }
 
-li.nav-column-2 > a {
-  font-size: 0.8rem;
-  letter-spacing: 0.2rem;
-  line-height: 2rem;
-  color: #8b8b8b;
-  font-family: "PT Sans", "Proxima Nova", sans-serif;
-}
+// li.nav-column-2 > a {
+//   font-size: 0.8rem;
+//   letter-spacing: 0.2rem;
+//   line-height: 2rem;
+//   color: #8b8b8b;
+//   font-family: "PT Sans", "Proxima Nova", sans-serif;
+// }
 
-li.nav-column-1 > a:hover {
-  text-decoration: underline;
-}
-
-li.nav-column-2 > a:hover {
+.nav-column a:hover {
   text-decoration: underline;
 }
 
 .nav-column {
 padding-bottom: 7.5%;
+}
+
+@media all and (max-width: 400px) {
+  .nav-column {
+    padding: 5% 2%;
+    box-sizing: border-box;
+  }
 }
 
 .line {
@@ -1562,4 +1632,14 @@ color: #ffffff;
   color:#646464;
 }
 
-  //display: inline;
+@media all and (max-width: 1000px) {
+  .footer-inner{
+  padding-bottom: 12%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .back-to-top {
+    display: none !important;
+  }
+}
