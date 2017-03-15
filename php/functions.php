@@ -57,6 +57,21 @@ function register_theme_menus() {
 
 add_action( 'init', 'register_theme_menus' );
 
+//Menu callback
+
+function vcs_menu($menu, $classes) {
+
+	wp_nav_menu(array(
+
+		'menu' => $menu,
+		'theme_location' => $menu,
+		'container' => '<nav></nav>',
+		'menu_class' => $classes
+
+	));
+
+}
+
 // Apibrėžiame widgets juostas
 
 #$sidebars = array( 'Footer Widgets', 'Blog Widgets' );
