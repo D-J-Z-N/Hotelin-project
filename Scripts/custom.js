@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  $('button').click(function() {
+    $(this).toggleClass('expanded').siblings('div').slideToggle();
+  });
+
   $(document).on('scroll', function() {
     if ($(document).scrollTop() > 0) {
       $('.nav-main').addClass('nav-shrink');
@@ -7,9 +11,6 @@ $(document).ready(function() {
       $('.nav-main').removeClass('nav-shrink');
     }
   });
-
-
-  console.log('test');
 
   $('.owl-carousel').owlCarousel({
       loop:true,
@@ -25,14 +26,17 @@ $(document).ready(function() {
           1000:{
               items:1
           }
-      }
+      },
+      autoplay:true,
+      autoplayTimeout:5000,
+      autoplayHoverPause:true
   });
 
 
-    var offset = 600;
-    var duration = 300;
+  var offset = 600;
+  var duration = 300;
 
-    jQuery(window).scroll(function() {
+  jQuery(window).scroll(function() {
 
     if (jQuery(this).scrollTop() > offset) {
 
@@ -41,26 +45,48 @@ $(document).ready(function() {
     jQuery('.back-to-top').fadeOut(duration);
     }
 
-    });
+  });
 
 
-    jQuery('.back-to-top').click(function(event) {
+  jQuery('.back-to-top').click(function(event) {
 
     event.preventDefault();
-
     jQuery('html, body').animate({scrollTop: 0}, duration);
-
     return false;
 
   });
 
   $(document).on('click', '[data-lightbox]', lity);
 
+  function hotelinMap() {
+    var hotelin = {lat: -7.801389, lng: 110.364444};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 17,
+      center: hotelin,
+      scrollwheel: false,
+      mapTypeControl: false,
+      gestureHandling: 'cooperative',
+      zoomControl: true,
+      scaleControl: true,
+      panControl: true,
+      streetViewControl: false,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_TOP
+      }
 
+    });
 
+    var marker = new google.maps.Marker({
+      position: hotelin,
+      map: map,
+      icon: "images/mappointer.png"
+    });
 
+  }
 
+  hotelinMap();
 
+  console.log('test');
 
 
 });
